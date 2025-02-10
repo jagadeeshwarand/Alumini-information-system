@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            appearance: none;
+            background-color: white; /* Set the background to white */
+        }
+
+        select::before,
+        select::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            border: 5px solid transparent;
+        }
+
+        select::before {
+            border-top-color: #555;
+        }
+
+        select::after {
+            border-bottom-color: #555;
+        }
+
+        /* Style the options within the select */
+        select option {
+            background-color: white; /* Set the background of options to white */
+            color: #555;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <img src="logo.png" class="logo">
+            <ul>
+                <li><a href="index.php">Student Register</a></li>
+                <li> <div>
+                    <select id="departmentSelect" onchange="redirectToPage()">
+                        <option value="">View Details</option>
+                        <option value="admin/student_estatus_bsc.php">B.SC Computer Details</option>
+                        <option value="admin/student_estatus_msc.php">M.SC Computer Details</option>
+                    </select>
+                </div></li>
+            </ul>
+            
+            <button class="btn" class="bi bi-caret-right" onclick="window.location.href='./admin/document.php';"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+              </svg>&nbsp;&nbsp;Admin</button>
+        </nav>
+
+        <div class="content">
+            <h1>Computer Science<br> Department</h1>
+            
+        </div>
+    </div>
+    <script>
+        function redirectToPage() {
+            var select = document.getElementById('departmentSelect');
+            var selectedOption = select.options[select.selectedIndex];
+            var pageURL = selectedOption.value;
+            window.location.href = pageURL;
+        }
+    </script>
+
+    <!-- Your dropdown with links to other pages -->
+   
+</body>
+</html>
